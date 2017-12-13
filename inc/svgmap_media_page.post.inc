@@ -17,7 +17,8 @@ if ( wp_verify_nonce($_REQUEST['_wpnonce'], 'svgmap_submit') ) {
 				if ( $svg ) {
 					array_push($id_array, $id);
 
-          $viewbox = $svg->attributes()->viewBox;
+					$viewbox = $svg->attributes()->viewBox;
+					$viewbox = $viewbox ? $viewbox : '0 0 64 64';
 
 					$svg_string .= '<symbol id=":'.$name.'" viewBox="' . $viewbox . '">';
 
